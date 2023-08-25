@@ -4,7 +4,8 @@
       "name": "PROS Project",
       "includePath": [
         "${workspaceFolder}/**",
-        "/Users/aravrawat/Downloads/BEST 2023/Testing-PROS/include"
+        "/Users/aravrawat/Downloads/BEST 2023/Testing-PROS/include",
+        "/Users/aravrawat/Downloads/BEST 2023 big folder/BEST2023-Github/Testing-PROS/include"
       ],
       "defines": [
         "_DEBUG",
@@ -15,13 +16,13 @@
       "cStandard": "c17",
       "cppStandard": "c++17",
       "intelliSenseMode": "gcc-arm",
-      "compileCommands": "/Users/aravrawat/Downloads/BEST 2023/Testing-PROS/compile_commands.json",
+      "compileCommands": "/Users/aravrawat/Downloads/BEST 2023 big folder/BEST2023-Github/Testing-PROS/compile_commands.json",
       "macFrameworkPath": [
         "/System/Library/Frameworks"
       ],
       "browse": {
         "path": [
-          "/Users/aravrawat/Downloads/BEST 2023/Testing-PROS"
+          "/Users/aravrawat/Downloads/BEST 2023 big folder/BEST2023-Github/Testing-PROS"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""
