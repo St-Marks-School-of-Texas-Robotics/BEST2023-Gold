@@ -34,6 +34,7 @@ task main()
     for(int i=-117; i<128; i+=10)     /* Starting 'i' at -117, and incrementing by 10, */
     {                                 /* continue while 'i' is less than 0. */
       motor[servoMotor] = i;          // Set 'servoMotor' to position 'i'.
+      writeDebugStreamLine("%d position", i);
       wait1Msec(250);                 // Wait for 0.25 seconds (gives time for the servo to move)
     }
   }
