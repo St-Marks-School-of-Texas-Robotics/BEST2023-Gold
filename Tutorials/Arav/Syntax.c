@@ -38,6 +38,7 @@ task main()
     motor[motor1] = 127;       // Set 'servoMotor' to position -127 (negative end of range)
 
     int power = vexRT[Ch3];
+    int button = vexRT[Btn5U];
   }
 
 }
