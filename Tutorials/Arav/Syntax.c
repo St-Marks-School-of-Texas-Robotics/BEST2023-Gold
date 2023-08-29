@@ -39,6 +39,7 @@ task main()
 
     int power = vexRT[Ch3];
     int button = vexRT[Btn5U];
+    int button2 = vexRT[Btn8L];
   }
 
 }
