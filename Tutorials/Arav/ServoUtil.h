@@ -14,8 +14,13 @@ void toggleServo(int port, int startPos, int endPos, bool &servoState, TVexJoyst
             motor[port] = startPos;
             servoState = false;
         }
+    }
+}
 
-        // Add a slight delay to prevent rapid toggling
-        wait1Msec(300);
+void moveServo(int servoPort, int targetPosition, TVexJoysticks button) {
+    // Check if the button is pressed
+    if (vexRT[button] == 1) {
+        // Set the servo to the target position
+        motor[servoPort] = targetPosition;
     }
 }
