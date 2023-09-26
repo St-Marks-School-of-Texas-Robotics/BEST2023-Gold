@@ -13,8 +13,8 @@ task main()
 
 	while(true){
 
-		float leftPower = vexRT[Ch3]-vexRT[Ch1];
-		float rightPower = vexRT[Ch3]+vexRT[Ch1];
+		float leftPower = vexRT[Ch3]+vexRT[Ch1];
+		float rightPower = vexRT[Ch3]-vexRT[Ch1];
 		// slow mode
 		if (vexRT[Btn5U]) {
 			motor[leftMotor] = 0.3 * leftPower;
