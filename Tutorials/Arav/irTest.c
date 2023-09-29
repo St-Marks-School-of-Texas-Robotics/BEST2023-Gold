@@ -8,11 +8,14 @@ task main()
 
 
 	while(true){
-		if (irReceive1 == false){
-			motor[motor1] = 127;
-		}
+
+		clearDebugStream();
+
+		writeDebugStream("%d", SensorValue[irReceive1]);
+
 
 	}
+
 
 
 }
