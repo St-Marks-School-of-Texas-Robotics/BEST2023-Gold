@@ -16,11 +16,18 @@ task main()
 	// 40 , 45
 	if (SensorValue[irLeft] == 0) { // left over white
 		motor[leftDrive] = 25;
-		motor[rightDrive] = 37;
+		motor[rightDrive] = 33 + 20 * (time1[T1]/1000);
 	} else {
-		motor[leftDrive] = 27;
+		motor[leftDrive] = 38;
 		motor[rightDrive] = 23;
 	}
+
+	if (SensorValue[irLeft] == 1) { // left over white
+		clearTimer(T1);
+	}
+
+
+
 	}
 
 
