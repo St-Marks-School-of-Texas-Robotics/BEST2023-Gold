@@ -7,6 +7,8 @@
 task main()
 {
 
+clearTimer(T1);
+clearTimer(T2);
 
 	while(true){
 
@@ -15,14 +17,14 @@ task main()
 	writeDebugStream("%d", SensorValue[irLeft]);
 	// 40 , 45
 	if (SensorValue[irLeft] == 0) { // left over white
-		motor[leftDrive] = 25;
-		motor[rightDrive] = 33 + 20 * (time1[T1]/1000);
-	} else {
-		motor[leftDrive] = 38;
-		motor[rightDrive] = 23;
-	}
+		motor[leftDrive] = 15;
+		motor[rightDrive] = 75 + 150 * (time1[T1]/1000);
 
-	if (SensorValue[irLeft] == 1) { // left over white
+		clearTimer(T2);
+	} else {
+		motor[leftDrive] = 38 + 25 * (time1[T2]/1000);
+		motor[rightDrive] = 32;
+
 		clearTimer(T1);
 	}
 
