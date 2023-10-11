@@ -13,10 +13,10 @@ task main()
 		clearDebugStream();
 
 		//writeDebugStream("%d", SensorValue[irReceive1]);
-		writeDebugStreamLine("%d", SensorValue[IRAnalog]);
+		//writeDebugStreamLine("%d", SensorValue[IRAnalog]);
 
-		//writeDebugStreamLine("%d", SensorValue[irReceive1]);
-		//writeDebugStreamLine("%d", SensorValue[irReceive2]);
+		writeDebugStreamLine("%d", SensorValue[irReceive1]);
+		writeDebugStreamLine("%d", SensorValue[irReceive2]);
 
 
 	}
