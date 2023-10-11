@@ -1,3 +1,4 @@
+#pragma config(Sensor, in8,    IRAnalog,       sensorAnalog)
 #pragma config(Sensor, dgtl1,  irReceive1,     sensorDigitalIn)
 #pragma config(Sensor, dgtl10, irReceive2,     sensorDigitalIn)
 #pragma config(Motor,  port2,           motor1,        tmotorServoContinuousRotation, openLoop)
@@ -12,8 +13,10 @@ task main()
 		clearDebugStream();
 
 		//writeDebugStream("%d", SensorValue[irReceive1]);
-		writeDebugStreamLine("%d", SensorValue[irReceive1]);
-		writeDebugStreamLine("%d", SensorValue[irReceive2]);
+		writeDebugStreamLine("%d", SensorValue[IRAnalog]);
+
+		//writeDebugStreamLine("%d", SensorValue[irReceive1]);
+		//writeDebugStreamLine("%d", SensorValue[irReceive2]);
 
 
 	}
