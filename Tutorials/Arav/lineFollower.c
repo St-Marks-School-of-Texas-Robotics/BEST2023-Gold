@@ -31,13 +31,13 @@ task main()
     {
       if (SensorValue[irLeft] == 0) // left over white
       {
-        motor[leftDrive] = -25;
+        motor[leftDrive] = -15;
         motor[rightDrive] = 75 + 500 * (time1[T1] / 1000);
       }
       else if (SensorValue[irRight] == 0) // right over white
       {
         motor[leftDrive] = 95 + 500 * (time1[T1] / 1000);
-        motor[rightDrive] = -35;
+        motor[rightDrive] = -25;
       }
       else
       {
