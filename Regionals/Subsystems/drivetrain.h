@@ -6,11 +6,11 @@ void arcadeDrive(int yJoystick, int xJoystick, int slow) {
   int rightMotorSpeed = yJoystick - xJoystick;
 
 	if (slow == 1) {
-		motor[leftMotor] = 0.3 * leftMotorSpeed;
-  	motor[rightMotor] = 0.3 * rightMotorSpeed;
+		motor[leftDrive] = 0.3 * leftMotorSpeed;
+  	motor[rightDrive] = 0.3 * rightMotorSpeed;
 	} else {
-		motor[leftMotor] = leftMotorSpeed;
-  	motor[rightMotor] = rightMotorSpeed;
+		motor[leftDrive] = leftMotorSpeed;
+  	motor[rightDrive] = rightMotorSpeed;
 	}
 
 
@@ -19,6 +19,6 @@ void arcadeDrive(int yJoystick, int xJoystick, int slow) {
 
 // Function to stop the drivetrain
 void stopDrivetrain() {
-  motor[leftMotor] = 0;
-  motor[rightMotor] = 0;
+  motor[leftDrive] = 0;
+  motor[rightDrive] = 0;
 }
