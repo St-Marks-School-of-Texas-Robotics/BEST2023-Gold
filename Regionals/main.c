@@ -22,6 +22,10 @@ task main()
       setArmSetpoint(1500); // High Artery
     } else if (vexRT[Btn8D]) {
       setArmSetpoint(1500); // Low Artery
+    } else if (vexRT[Btn6U]) {
+    	nudgeUp();
+    } else if (vexRT[Btn6D]) {
+    	nudgeDown();
     }
 
   	// Drive
