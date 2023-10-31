@@ -48,10 +48,3 @@ void nudgeUp() {
 void nudgeDown() {
   setpoint -= 5;
 }
-
-
-
-// Function to stop the arm motor
-void stopArm() {
-  motor[armMotor] = 0;
-}

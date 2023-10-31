@@ -14,8 +14,6 @@
 #include "Subsystems/arm.h"
 #include "Subsystems/veinGrabber.h"
 
-#include "Util/ServoUtil.h"
-
 task main()
 {
 	bool clawToggle = false;

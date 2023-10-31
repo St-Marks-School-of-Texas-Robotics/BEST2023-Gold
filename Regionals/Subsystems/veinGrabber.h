@@ -29,21 +29,3 @@ void closeClaw() {
   motor[leftClaw] = CLOSE_CLAW;
   motor[rightClaw] = CLOSE_CLAW;
 }
-
-
-void toggleClaw(int port, int startPos, int endPos, bool &servoState, TVexJoysticks toggleButton)
-{
-    if (vexRT[toggleButton])
-    {
-        if (!servoState)
-        {
-            motor[port] = endPos;
-            servoState = true;
-        }
-        else
-        {
-            motor[port] = startPos;
-            servoState = false;
-        }
-    }
-}
