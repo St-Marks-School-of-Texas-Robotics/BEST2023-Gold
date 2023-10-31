@@ -21,6 +21,8 @@ task main()
 	bool clawToggle = false;
 	int prevClaw = false;
 
+	bool dualStick = true;
+
   while (true)
   {
   	updateArm(); // Update the arm position using the PID controller
@@ -79,7 +81,18 @@ task main()
 
 
   	// Drive
-    arcadeDrive(vexRT[Ch3], vexRT[Ch1], vexRT[Btn5U]);
+    if (vexRT[Btn7L]) {
+    	dualStick = false;
+    } else if (vexRT[Btn7R]) {
+    	dualStick = true;
+    }
+
+    if (dualStick) {
+    	arcadeDrive(vexRT[Ch3], vexRT[Ch1], vexRT[Btn5U]);
+    } else {
+    	arcadeDrive(vexRT[Ch3], vexRT[Ch4], vexRT[Btn5U]);
+    }
+
 
     if (vexRT[Btn7U]) {
     	lineFollowing(vexRT[Btn7D]);
