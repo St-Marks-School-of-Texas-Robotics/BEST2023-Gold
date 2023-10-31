@@ -23,7 +23,6 @@ task main()
 
   while (true)
   {
-  	updateArm(); // Update the arm position using the PID controller
 
   	if (vexRT[Btn8U]) { // Vein Score
       setArmSetpoint(1500);
@@ -42,7 +41,7 @@ task main()
     	nudgeDown();
     }
 
-
+   updateArm(); // Update the arm position using the PID controller
 
 
 
