@@ -1,16 +1,9 @@
 
-// PID constants
-float kP = 1.0;  // Proportional constant
-float kI = 0.1;  // Integral constant
-float kD = 0.2;  // Derivative constant
+const float kP = 10; // Proportional constant
+const float kF = 34; // Proportional constant
 
-// Variables for PID control
-float setpoint = 0;  // Desired position
-float error = 0;
-float integral = 0;
-float derivative = 0;
-float lastError = 0;
-int output = 0;
+
+int setpoint;
 
 // Function to set the arm's target position
 void setArmSetpoint(float target) {
@@ -20,23 +13,22 @@ void setArmSetpoint(float target) {
 // Function to update the arm's position and apply PID control
 void updateArm() {
   // Read the current position from the potentiometer
-  float currentPosition = SensorValue[potentiometer];
+  int currentPosition = SensorValue[potentiometer];
+  float ticksPerDegree = 4096 / 300;
+
+  float theta = (currentPosition - 2770) / ticksPerDegree;
+
+  float ff = kF * cosDegrees(theta);
 
   // Calculate the error
-  error = setpoint - currentPosition;
-
-  // Calculate the integral and derivative terms
-  integral += error;
-  derivative = error - lastError;
+  float error = setpoint - currentPosition;
 
   // Calculate the output using PID control
-  output = kP * error + kI * integral + kD * derivative;
+  float output = kP * error + ff;
 
   // Apply the output to the arm motor
   motor[armMotor] = output;
 
-  // Update the last error
-  lastError = error;
 }
 
 // Function to stop the arm motor
