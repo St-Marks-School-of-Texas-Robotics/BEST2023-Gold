@@ -33,10 +33,10 @@ void updateArm() {
 
 // Function to stop the arm motor
 void nudgeUp() {
-  setpoint += 5;
+  setpoint += 2;
 }
 
 // Function to stop the arm motor
 void nudgeDown() {
-  setpoint -= 5;
+  setpoint -= 2;
 }
