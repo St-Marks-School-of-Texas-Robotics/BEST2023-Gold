@@ -16,7 +16,7 @@ void updateArm() {
   int currentPosition = SensorValue[potentiometer];
   float ticksPerDegree = 4096 / 300;
 
-  float theta = (currentPosition - 2770) / ticksPerDegree;
+  float theta = (currentPosition - 2770) / ticksPerDegree; // angle from horizontal
 
   float ff = kF * cosDegrees(theta);
 
