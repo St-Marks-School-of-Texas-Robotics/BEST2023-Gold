@@ -25,16 +25,16 @@ task main()
   {
 
   	if (vexRT[Btn8U]) { // Vein Score
-      setArmSetpoint(1500);
+      setArmSetpoint(1100);
       openJoint();
     } else if (vexRT[Btn8L]) { // Vein Pickup
-      setArmSetpoint(1500);
+      setArmSetpoint(850);
       closeJoint();
       openClaw();
     } else if (vexRT[Btn8R]) { // High Artery
-      setArmSetpoint(1500);
+      setArmSetpoint(1900);
     } else if (vexRT[Btn8D]) { // Low Artery
-      setArmSetpoint(1500);
+      setArmSetpoint(1000);
     } else if (vexRT[Btn6U]) {
     	nudgeUp();
     } else if (vexRT[Btn6D]) {
