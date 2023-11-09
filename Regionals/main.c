@@ -32,7 +32,7 @@ task main()
       closeJoint();
       openClaw();
     } else if (vexRT[Btn8R]) { // High Artery
-      setArmSetpoint(1900);
+      setArmSetpoint(1800);
     } else if (vexRT[Btn8D]) { // Low Artery
       setArmSetpoint(1000);
     } else if (vexRT[Btn6U]) {
