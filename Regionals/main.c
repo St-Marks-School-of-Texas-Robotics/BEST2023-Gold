@@ -44,12 +44,6 @@ task main()
    updateArm(); // Update the arm position using the PID controller
 
 
-
-
-
-
-
-
     // CLAW
     // Rising edge detector
 		if (vexRT[Btn5D] && !prevClaw) {
@@ -70,13 +64,6 @@ task main()
     prevClaw = vexRT[Btn5D];
 
 
-
-
-
-
-
-
-
   	// Drive
     if (vexRT[Btn7L]) {
     	dualStick = false;
@@ -94,7 +81,6 @@ task main()
     if (vexRT[Btn7U]) {
     	lineFollowing(vexRT[Btn7D]);
     }
-
 
 
 
