@@ -11,7 +11,7 @@ void setArmSetpoint(float target) {
 }
 
 // Function to update the arm's position and apply PID control
-void updateArm() {
+void updateArm(int up, int down) {
   // Read the current position from the potentiometer
   int currentPosition = SensorValue[potentiometer];
   clearDebugStream();
@@ -30,7 +30,18 @@ void updateArm() {
   float output = kP * error + ff;
 
   // Apply the output to the arm motor
-  motor[armMotor] = output;
+
+  if (up == 1) {
+  	motor[armMotor] = 127;
+  	setpoint = currentPosition;
+  } else if (down == 1) {
+  	motor[armMotor] = -50;
+  	setpoint = currentPosition;
+  } else {
+  	motor[armMotor] = output;
+  }
+
+
 
 }
 

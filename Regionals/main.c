@@ -35,13 +35,9 @@ task main()
       setArmSetpoint(1800);
     } else if (vexRT[Btn8D]) { // Low Artery
       setArmSetpoint(1000);
-    } else if (vexRT[Btn6U]) {
-    	nudgeUp();
-    } else if (vexRT[Btn6D]) {
-    	nudgeDown();
     }
 
-   updateArm(); // Update the arm position using the PID controller
+   updateArm(vexRT[Btn6U], vexRT[Btn6D]); // Update the arm position using the PID controller
 
 
     // CLAW
