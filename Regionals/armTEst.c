@@ -19,7 +19,7 @@ task main()
       closeJoint();
     } else if (vexRT[Btn8L]) { // Vein Pickup
       openJoint();
-      openClaw();
+      //openClaw();
     }
 
 /*
