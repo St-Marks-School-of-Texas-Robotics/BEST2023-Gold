@@ -1,21 +1,24 @@
 
 // Constants for servo positions
-const int OPEN_JOINT = 127;  // The open position for the claw
-const int CLOSE_JOINT = 0; // The closed position for the claw
+const int OPEN_JOINTL = -90;  // The open position for the claw
+const int CLOSE_JOINTL = 100; // The closed position for the claw
 
-const int OPEN_CLAW = 127;  // The open position for the claw
-const int CLOSE_CLAW = 0; // The closed position for the claw
+const int OPEN_JOINTR = 107;  // The open position for the claw
+const int CLOSE_JOINTR = -113; // The closed position for the claw
+
+const int OPEN_CLAW = 122;  // The open position for the claw
+const int CLOSE_CLAW = -123; // The closed position for the claw
 
 // Function to open both pairs of servos
 void openJoint() {
-  motor[leftJoint] = OPEN_JOINT;
-  motor[rightJoint] = OPEN_JOINT;
+  motor[leftJoint] = OPEN_JOINTL;
+  motor[rightJoint] = OPEN_JOINTR;
 }
 
 
 void closeJoint() {
-  motor[leftJoint] = CLOSE_JOINT;
-  motor[rightJoint] = CLOSE_JOINT;
+  motor[leftJoint] = CLOSE_JOINTL;
+  motor[rightJoint] = CLOSE_JOINTR;
 }
 
 // Function to close both pairs of servos
