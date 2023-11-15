@@ -25,28 +25,25 @@ void stopDrivetrain() {
 
 
 
-// Function to implement arcade drive
-void lineFollowing(int stopBtn) {
-
-	while (stopBtn != 1) {
-
-				if (SensorValue[irLeft] == 0) // left over white
-		    {
-		        motor[leftDrive] = -15;
-		        motor[rightDrive] = 75 + 500 * (time1[T1] / 1000);
-		    }
-		    else if (SensorValue[irRight] == 0) // right over white
-		    {
-		        motor[leftDrive] = 85 + 900 * (time1[T1] / 1000);
-		        motor[rightDrive] = -15;
-		    }
-		    else
-		    {
-		        motor[leftDrive] = 65;
-		        motor[rightDrive] = 65;
-		        clearTimer(T1);
-		    }
-	}
-
-	stopDrivetrain();
+void lineFollowing(bool stopBtn) {
+    while (!stopBtn) { // Assuming stopBtn represents a button press
+        if (SensorValue[irLeft] == 0) {
+            // Left over white
+            motor[leftDrive] = -5;
+            motor[rightDrive] = 55 + 1000 * (time1[T1] / 1000);
+        } else if (SensorValue[irRight] == 0) {
+            // Right over white
+            motor[leftDrive] = 65 + 1200 * (time1[T1] / 1000);
+            motor[rightDrive] = -5;
+        } else {
+            // Neither left nor right over white
+            motor[leftDrive] = 65;
+            motor[rightDrive] = 65;
+            clearTimer(T1);
+        }
+        // Read stop button state here and update stopBtn variable accordingly
+        // Example: stopBtn = (VexRT[Btn8U] == 1);  // Assuming Btn8U is the stop button
+        stopBtn = (VexRT[Btn7D] == 1);
+    }
+    stopDrivetrain();
 }

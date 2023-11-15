@@ -1,9 +1,9 @@
 
 const float kP = 0; // Proportional constant
-const float kF = 30; // Proportional constant
+const float kF = 55; // Proportional constant
 
 
-int setpoint = 1250;
+int setpoint = 1095;
 
 // Function to set the arm's target position
 void setArmSetpoint(float target) {
@@ -19,7 +19,7 @@ void updateArm(int up, int down) {
 
   float ticksPerDegree = 4096 / 300;
 
-  float theta = (currentPosition - 1250) / ticksPerDegree; // angle from horizontal
+  float theta = (currentPosition - 1095) / ticksPerDegree; // angle from horizontal
 
   float ff = kF * cosDegrees(theta);
 
