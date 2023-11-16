@@ -29,18 +29,27 @@ task main()
 
   	if (vexRT[Btn8R]) { // Vein Score
       setArmSetpoint(1085);
+      clearTimer(T2);
       closeJoint();
     } else if (vexRT[Btn8D]) { // Vein Pickup
       setArmSetpoint(795);
+      clearTimer(T2);
       openJoint();
       openClaw();
     } else if (vexRT[Btn8U]) { // High Artery
       setArmSetpoint(1800);
+      clearTimer(T2);
     } else if (vexRT[Btn8L]) { // Low Artery
       setArmSetpoint(750);
+      clearTimer(T2);
     }
 
-   updateArm(vexRT[Btn6U], vexRT[Btn6D]); // Update the arm position using the PID controller
+   if ((time1[T2] / 1000) > 120) {
+   	stopArm();
+   } else {
+   	updateArm(vexRT[Btn6U], vexRT[Btn6D]); // Update the arm position using the PID controller
+   }
+
 
 
 
