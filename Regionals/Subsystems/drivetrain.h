@@ -43,7 +43,7 @@ void lineFollowing(bool stopBtn) {
         }
         // Read stop button state here and update stopBtn variable accordingly
         // Example: stopBtn = (VexRT[Btn8U] == 1);  // Assuming Btn8U is the stop button
-        stopBtn = (VexRT[Btn7D] == 1);
+        stopBtn = (vexRT[Btn7D] == 1);
     }
     stopDrivetrain();
 }
