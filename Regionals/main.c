@@ -16,6 +16,8 @@
 
 task main()
 {
+	bool initial = true;
+
 	bool clawToggle = false;
 	bool curClaw = false;
 	bool prevClaw = false;
@@ -31,20 +33,24 @@ task main()
       setArmSetpoint(1085);
       clearTimer(T2);
       closeJoint();
+      initial = false;
     } else if (vexRT[Btn8D]) { // Vein Pickup
       setArmSetpoint(795);
       clearTimer(T2);
       openJoint();
       openClaw();
+      initial = false;
     } else if (vexRT[Btn8U]) { // High Artery
       setArmSetpoint(1800);
       clearTimer(T2);
+      initial = false;
     } else if (vexRT[Btn8L]) { // Low Artery
       setArmSetpoint(750);
       clearTimer(T2);
+      initial = false;
     }
 
-   if ((time1[T2] / 1000) > 120) {
+   if (((time1[T2] / 1000) > 120) || initial) {
    	stopArm();
    } else {
    	updateArm(vexRT[Btn6U], vexRT[Btn6D]); // Update the arm position using the PID controller
