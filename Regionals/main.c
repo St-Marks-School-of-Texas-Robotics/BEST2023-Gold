@@ -20,21 +20,23 @@ task main()
 	bool curClaw = false;
 	bool prevClaw = false;
 
-	bool dualStick = true;
+	bool dualToggle = true;
+	bool curDual = false;
+	bool prevDual = false;
 
   while (true)
   {
 
-  	if (vexRT[Btn8U]) { // Vein Score
+  	if (vexRT[Btn8R]) { // Vein Score
       setArmSetpoint(1085);
       closeJoint();
-    } else if (vexRT[Btn8L]) { // Vein Pickup
+    } else if (vexRT[Btn8D]) { // Vein Pickup
       setArmSetpoint(795);
       openJoint();
       openClaw();
-    } else if (vexRT[Btn8R]) { // High Artery
+    } else if (vexRT[Btn8U]) { // High Artery
       setArmSetpoint(1800);
-    } else if (vexRT[Btn8D]) { // Low Artery
+    } else if (vexRT[Btn8L]) { // Low Artery
       setArmSetpoint(750);
     }
 
@@ -70,21 +72,32 @@ task main()
 
 
   	// Drive
-    if (vexRT[Btn7L]) {
-    	dualStick = false;
-    } else if (vexRT[Btn7R]) {
-    	dualStick = true;
+
+		prevDual = curDual;
+    if (vexRT[Btn7U]) {
+    	curDual = true;
+    } else {
+    	curDual = false;
     }
 
-    if (dualStick) {
+    if (curDual && !prevDual) {
+		    // This will set intakeToggle to true if it was previously false
+		    // and intakeToggle to false if it was previously true,
+		    // providing a toggling behavior.
+		    dualToggle = !dualToggle;
+		}
+
+    if (dualToggle) {
     	arcadeDrive(vexRT[Ch3], vexRT[Ch1], vexRT[Btn5U]);
     } else {
     	arcadeDrive(vexRT[Ch3], vexRT[Ch4], vexRT[Btn5U]);
     }
 
 
-    if (vexRT[Btn7U]) {
-    	lineFollowing(vexRT[Btn7D]);
+    if (vexRT[Btn7L]) {
+    	lineFollowingLeft(vexRT[Btn7D]);
+    } else if (vexRT[Btn7R]) {
+    	lineFollowingRight(vexRT[Btn7D]);
     }
 
 
