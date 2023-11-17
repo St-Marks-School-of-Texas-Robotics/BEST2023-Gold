@@ -6,8 +6,8 @@ void arcadeDrive(int yJoystick, int xJoystick, int slow) {
   int rightMotorSpeed = yJoystick - xJoystick;
 
 	if (slow == 1) {
-		motor[leftDrive] = 0.5 * leftMotorSpeed;
-  	motor[rightDrive] = 0.5 * rightMotorSpeed;
+		motor[leftDrive] = 0.4 * leftMotorSpeed;
+  	motor[rightDrive] = 0.4 * rightMotorSpeed;
 	} else {
 		motor[leftDrive] = leftMotorSpeed;
   	motor[rightDrive] = rightMotorSpeed;

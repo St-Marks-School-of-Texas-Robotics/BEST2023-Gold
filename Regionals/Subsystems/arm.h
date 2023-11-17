@@ -34,9 +34,11 @@ void updateArm(int up, int down) {
   if (up == 1) {
   	motor[armMotor] = 127;
   	setpoint = currentPosition;
+  	clearTimer(T2);
   } else if (down == 1) {
   	motor[armMotor] = -50;
   	setpoint = currentPosition;
+  	clearTimer(T2);
   } else {
   	motor[armMotor] = output;
   }
