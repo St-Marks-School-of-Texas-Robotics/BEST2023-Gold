@@ -26,6 +26,9 @@ task main()
 	bool curDual = false;
 	bool prevDual = false;
 
+	closeClaw();
+	closeJoint();
+
   while (true)
   {
 
@@ -45,7 +48,9 @@ task main()
       clearTimer(T2);
       initial = false;
     } else if (vexRT[Btn8L]) { // Low Artery
-      setArmSetpoint(750);
+      setArmSetpoint(950);
+      closeJoint();
+      closeClaw();
       clearTimer(T2);
       initial = false;
     }
@@ -87,7 +92,7 @@ task main()
 
 
   	// Drive
-
+/*
 		prevDual = curDual;
     if (vexRT[Btn7U]) {
     	curDual = true;
@@ -101,6 +106,7 @@ task main()
 		    // providing a toggling behavior.
 		    dualToggle = !dualToggle;
 		}
+		*/
 
     if (dualToggle) {
     	arcadeDrive(vexRT[Ch3], vexRT[Ch1], vexRT[Btn5U]);
@@ -121,6 +127,12 @@ task main()
     	closeJoint();
     	setArmSetpoint(900);
     	lineFollowingRight(vexRT[Btn7D]);
+    } else if (vexRT[Btn7U]) {
+    	closeClaw();
+    	clawToggle = true;
+    	closeJoint();
+    	setArmSetpoint(900);
+    	lineFollowingSlow(vexRT[Btn7D]);
     }
 
 
