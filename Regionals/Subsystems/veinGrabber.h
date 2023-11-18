@@ -1,10 +1,10 @@
 
 // Constants for servo positions
-const int OPEN_JOINTL = -90;  // The open position for the claw
-const int CLOSE_JOINTL = 100; // The closed position for the claw
+const int OPEN_JOINTL = -85;  // The open position for the claw
+const int CLOSE_JOINTL = 120; // The closed position for the claw
 
-const int OPEN_JOINTR = 107;  // The open position for the claw
-const int CLOSE_JOINTR = -113; // The closed position for the claw
+const int OPEN_JOINTR = 95;  // The open position for the claw
+const int CLOSE_JOINTR = -117; // The closed position for the claw
 
 const int OPEN_CLAWL = 122;  // The open position for the claw
 const int CLOSE_CLAWL = -123; // The closed position for the claw

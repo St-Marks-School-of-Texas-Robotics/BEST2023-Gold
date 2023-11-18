@@ -30,7 +30,7 @@ task main()
   {
 
   	if (vexRT[Btn8R]) { // Vein Score
-      setArmSetpoint(1085);
+      setArmSetpoint(1300);
       clearTimer(T2);
       closeJoint();
       initial = false;
@@ -38,7 +38,7 @@ task main()
       setArmSetpoint(795);
       clearTimer(T2);
       openJoint();
-      openClaw();
+      clawToggle = false;
       initial = false;
     } else if (vexRT[Btn8U]) { // High Artery
       setArmSetpoint(1800);
@@ -110,8 +110,16 @@ task main()
 
 
     if (vexRT[Btn7L]) {
+    	closeClaw();
+    	clawToggle = true;
+    	closeJoint();
+    	setArmSetpoint(900);
     	lineFollowingLeft(vexRT[Btn7D]);
     } else if (vexRT[Btn7R]) {
+    	closeClaw();
+    	clawToggle = true;
+    	closeJoint();
+    	setArmSetpoint(900);
     	lineFollowingRight(vexRT[Btn7D]);
     }
 

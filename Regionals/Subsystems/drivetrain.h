@@ -25,20 +25,20 @@ void stopDrivetrain() {
 
 
 
-void lineFollowingLeft(bool stopBtn) {
+void lineFollowingRight(bool stopBtn) {
     while (!stopBtn) { // Assuming stopBtn represents a button press
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = -5;
-            motor[rightDrive] = 55 + 1000 * (time1[T1] / 1000);
+            motor[leftDrive] = -29 - 900 * (time1[T1] / 1000);
+            motor[rightDrive] = 85 + 1400 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = 65 + 1200 * (time1[T1] / 1000);
-            motor[rightDrive] = -5;
+            motor[leftDrive] = 55 + 1000 * (time1[T1] / 1000);
+            motor[rightDrive] = -15;
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = 95;
-            motor[rightDrive] = 95;
+            motor[leftDrive] = 53;
+            motor[rightDrive] = 56;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
@@ -48,20 +48,20 @@ void lineFollowingLeft(bool stopBtn) {
     stopDrivetrain();
 }
 
-void lineFollowingRight(bool stopBtn) {
+void lineFollowingLeft(bool stopBtn) {
     while (!stopBtn) { // Assuming stopBtn represents a button press
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = -5;
-            motor[rightDrive] = 70 + 1200 * (time1[T1] / 1000);
+            motor[leftDrive] = -19;
+            motor[rightDrive] = 78 + 1400 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = 55 + 1000 * (time1[T1] / 1000);
-            motor[rightDrive] = -5;
+            motor[leftDrive] = 55 + 200 * (time1[T1] / 1000);
+            motor[rightDrive] = -15;
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = 95;
-            motor[rightDrive] = 95;
+            motor[leftDrive] = 61;
+            motor[rightDrive] = 58;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
