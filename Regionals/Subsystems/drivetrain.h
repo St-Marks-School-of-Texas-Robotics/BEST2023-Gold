@@ -34,6 +34,9 @@ void stopDrivetrain() {
 
 void lineFollowingRight(bool stopBtn) {
     while (!stopBtn) { // Assuming stopBtn represents a button press
+
+    		updateArm(0,0); // Update the arm position using the PID controller
+
         if (SensorValue[irLeft] == 0) {
             // Left over white
             motor[leftDrive] = -20 - 1800 * (time1[T1] / 1000);
@@ -57,6 +60,9 @@ void lineFollowingRight(bool stopBtn) {
 
 void lineFollowingLeft(bool stopBtn) {
     while (!stopBtn) { // Assuming stopBtn represents a button press
+
+    		updateArm(0,0); // Update the arm position using the PID controller
+
         if (SensorValue[irLeft] == 0) {
             // Left over white
             motor[leftDrive] = -14;
@@ -81,6 +87,9 @@ void lineFollowingLeft(bool stopBtn) {
 
 void lineFollowingSlow(bool stopBtn) {
     while (!stopBtn) { // Assuming stopBtn represents a button press
+
+    		updateArm(0,0); // Update the arm position using the PID controller
+
         if (SensorValue[irLeft] == 0) {
             // Left over white
             motor[leftDrive] = -20 - 1500 * (time1[T1] / 1000);
