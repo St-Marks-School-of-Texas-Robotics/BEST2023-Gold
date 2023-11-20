@@ -22,9 +22,6 @@ task main()
 	bool curClaw = false;
 	bool prevClaw = false;
 
-	bool dualToggle = true;
-	bool curDual = false;
-	bool prevDual = false;
 
 	closeClaw();
 	closeJoint();
@@ -92,27 +89,8 @@ task main()
 
 
   	// Drive
-/*
-		prevDual = curDual;
-    if (vexRT[Btn7U]) {
-    	curDual = true;
-    } else {
-    	curDual = false;
-    }
 
-    if (curDual && !prevDual) {
-		    // This will set intakeToggle to true if it was previously false
-		    // and intakeToggle to false if it was previously true,
-		    // providing a toggling behavior.
-		    dualToggle = !dualToggle;
-		}
-		*/
-
-    if (dualToggle) {
-    	arcadeDrive(vexRT[Ch3], vexRT[Ch1], vexRT[Btn5U]);
-    } else {
-    	arcadeDrive(vexRT[Ch3], vexRT[Ch4], vexRT[Btn5U]);
-    }
+    arcadeDrive(vexRT[Ch3], vexRT[Ch4], vexRT[Btn5U]);
 
 
     if (vexRT[Btn7L]) {
