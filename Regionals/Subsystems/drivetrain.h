@@ -2,15 +2,19 @@
 // Function to implement arcade drive
 void arcadeDrive(int yJoystick, int xJoystick, int slow) {
 
-	int leftMotorSpeed;
-  int rightMotorSpeed;
+	float yValue = (yJoystick / 127.0) * (abs(yJoystick) / 127) * 127;
+	float xValue = (xJoystick / 127.0) * (abs(xJoystick) / 127) * 127;
+
+
+	float leftMotorSpeed;
+  float rightMotorSpeed;
 
 	if (slow == 1) {
-		leftMotorSpeed = 0.4* yJoystick + 0.2* xJoystick;
-		rightMotorSpeed = 0.4* yJoystick - 0.2* xJoystick;
+		leftMotorSpeed = 0.4* yValue + 0.2* xValue;
+		rightMotorSpeed = 0.4* yValue - 0.2* xValue;
 	} else {
-		leftMotorSpeed = yJoystick + xJoystick;
-		rightMotorSpeed = yJoystick - xJoystick;
+		leftMotorSpeed = yValue + xValue;
+		rightMotorSpeed = yValue - xValue;
 	}
 
 	motor[leftDrive] = leftMotorSpeed;
