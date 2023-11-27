@@ -39,16 +39,16 @@ void lineFollowingRight(bool stopBtn) {
 
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = -20 - 1800 * (time1[T1] / 1000);
-            motor[rightDrive] = 50 + 2500 * (time1[T1] / 1000);
+            motor[leftDrive] = +20 + 1800 * (time1[T1] / 1000);
+            motor[rightDrive] = -50 - 2500 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = 43 + 750 * (time1[T1] / 1000);
-            motor[rightDrive] = -13 - 1000 * (time1[T1] / 1000);
+            motor[leftDrive] = -43 - 750 * (time1[T1] / 1000);
+            motor[rightDrive] = 13 + 1000 * (time1[T1] / 1000);
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = 46;
-            motor[rightDrive] = 47;
+            motor[leftDrive] = -46;
+            motor[rightDrive] = -47;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
@@ -65,16 +65,16 @@ void lineFollowingLeft(bool stopBtn) {
 
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = -14;
-            motor[rightDrive] = 45 + 400 * (time1[T1] / 1000);
+            motor[leftDrive] = 14;
+            motor[rightDrive] = -45 - 400 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = 50 + 1400 * (time1[T1] / 1000);
-            motor[rightDrive] = -17 - 800 * (time1[T1] / 1000);
+            motor[leftDrive] = -50 - 1400 * (time1[T1] / 1000);
+            motor[rightDrive] = 17 + 800 * (time1[T1] / 1000);
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = 47;
-            motor[rightDrive] = 46;
+            motor[leftDrive] = -47;
+            motor[rightDrive] = -46;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
@@ -92,16 +92,16 @@ void lineFollowingSlow(bool stopBtn) {
 
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = -20 - 1500 * (time1[T1] / 1000);
-            motor[rightDrive] = 50 + 2200 * (time1[T1] / 1000);
+            motor[leftDrive] = 20 + 1500 * (time1[T1] / 1000);
+            motor[rightDrive] = -50 - 2200 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = 43 + 600 * (time1[T1] / 1000);
-            motor[rightDrive] = -13 - 900 * (time1[T1] / 1000);
+            motor[leftDrive] = -43 - 600 * (time1[T1] / 1000);
+            motor[rightDrive] = 13 + 900 * (time1[T1] / 1000);
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = 39;
-            motor[rightDrive] = 38;
+            motor[leftDrive] = -39;
+            motor[rightDrive] = -38;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
