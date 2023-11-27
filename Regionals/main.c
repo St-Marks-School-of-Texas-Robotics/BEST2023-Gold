@@ -30,27 +30,21 @@ task main()
   while (true)
   {
 
-  	if (vexRT[Btn8R]) { // Vein Score
+  	if (vexRT[Btn8U]) { // Vein Score
       setArmSetpoint(1300);
       clearTimer(T2);
       closeJoint();
       initial = false;
-    } else if (vexRT[Btn8D]) { // Vein Pickup
+    } else if (vexRT[Btn8L]) { // Vein Pickup
       setArmSetpoint(795);
       clearTimer(T2);
       openJoint();
       clawToggle = false;
       initial = false;
-    } else if (vexRT[Btn8U]) { // High Artery
-      setArmSetpoint(1800);
-      clearTimer(T2);
-      initial = false;
-    } else if (vexRT[Btn8L]) { // Low Artery
-      setArmSetpoint(950);
-      closeJoint();
-      closeClaw();
-      clearTimer(T2);
-      initial = false;
+    } else if (vexRT[Btn8D]) { // Right Claw
+      closeLeftClaw();
+    } else if (vexRT[Btn7D]) { // Left Claw
+      closeLeftClaw();
     }
 
    if (((time1[T2] / 1000) > 120) || initial) {
@@ -64,7 +58,7 @@ task main()
 
 
    prevClaw = curClaw;
-    if (vexRT[Btn5D]) {
+    if (vexRT[Btn8D]) {
     	curClaw = true;
     } else {
     	curClaw = false;
@@ -94,19 +88,19 @@ task main()
     arcadeDrive(vexRT[Ch3], vexRT[Ch4], vexRT[Btn5U]);
 
 
-    if (vexRT[Btn7L]) {
+    if (vexRT[Btn7L]) {   // Left Auto
     	closeClaw();
     	clawToggle = true;
     	closeJoint();
     	setArmSetpoint(900);
     	lineFollowingLeft(vexRT[Btn7D]);
-    } else if (vexRT[Btn7R]) {
+    } else if (vexRT[Btn7R]) {   // Right Auto
     	closeClaw();
     	clawToggle = true;
     	closeJoint();
     	setArmSetpoint(900);
     	lineFollowingRight(vexRT[Btn7D]);
-    } else if (vexRT[Btn7U]) {
+    } else if (vexRT[Btn7U]) {    // Reliable Auto
     	closeClaw();
     	clawToggle = true;
     	closeJoint();
