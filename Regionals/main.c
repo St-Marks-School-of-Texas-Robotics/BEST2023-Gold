@@ -23,6 +23,9 @@ task main()
 	bool curClaw = false;
 	bool prevClaw = false;
 
+	bool leftClosed = false;
+	bool rightClosed = false;
+
 
 	closeClaw();
 	closeJoint();
@@ -42,9 +45,11 @@ task main()
       clawToggle = false;
       initial = false;
     } else if (vexRT[Btn8D]) { // Right Claw
-      closeLeftClaw();
+      closeRightClaw();
+      rightClosed = true;
     } else if (vexRT[Btn7D]) { // Left Claw
       closeLeftClaw();
+      leftClosed = true;
     }
 
    if (((time1[T2] / 1000) > 120) || initial) {
@@ -57,8 +62,9 @@ task main()
 
 
 
+
    prevClaw = curClaw;
-    if (vexRT[Btn8D]) {
+    if (vexRT[Btn8D] || (leftClosed && rightClosed) ) {
     	curClaw = true;
     } else {
     	curClaw = false;
