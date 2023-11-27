@@ -29,6 +29,12 @@ void openClaw() {
   motor[leftClaw] = OPEN_CLAWL;
   motor[rightClaw] = OPEN_CLAWR;
 }
+void openLeftClaw() {
+  motor[leftClaw] = OPEN_CLAWL;
+}
+void openRightClaw() {
+  motor[rightClaw] = OPEN_CLAWR;
+}
 
 
 void closeClaw() {

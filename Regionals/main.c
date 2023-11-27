@@ -19,12 +19,16 @@ task main()
 {
 	bool initial = true;
 
-	bool clawToggle = false;
+	bool clawToggle = true;
 	bool curClaw = false;
 	bool prevClaw = false;
 
+	bool leftToggle = false;
+	bool rightToggle = false;
 	bool leftClosed = false;
 	bool rightClosed = false;
+	bool prevLeft = false;
+	bool prevRight = false;
 
 
 	closeClaw();
@@ -42,14 +46,9 @@ task main()
       setArmSetpoint(795);
       clearTimer(T2);
       openJoint();
+      openClaw();
       clawToggle = false;
       initial = false;
-    } else if (vexRT[Btn8D]) { // Right Claw
-      closeRightClaw();
-      rightClosed = true;
-    } else if (vexRT[Btn7D]) { // Left Claw
-      closeLeftClaw();
-      leftClosed = true;
     }
 
    if (((time1[T2] / 1000) > 120) || initial) {
@@ -61,32 +60,111 @@ task main()
 
 
 
+		// Left Claw Toggle
+		prevLeft = leftClosed;
+    if (vexRT[Btn7D]) {
+    	leftClosed = true;
+    } else {
+    	leftClosed = false;
+    }
+
+    // Rising edge detector
+		if (leftClosed && !prevLeft) {
+		    // This will set intakeToggle to true if it was previously false
+		    // and intakeToggle to false if it was previously true,
+		    // providing a toggling behavior.
+		    leftToggle = !leftToggle;
+
+		    // Using the toggle variable to control the robot.
+				if (leftToggle) {
+				    closeLeftClaw();
+				}
+				else {
+				    openLeftClaw();
+				}
+		}
 
 
+
+
+		// Right Claw Toggle
+		prevRight = rightClosed;
+    if (vexRT[Btn8D]) {
+    	rightClosed = true;
+    } else {
+    	rightClosed = false;
+    }
+
+    // Rising edge detector
+		if (rightClosed && !prevRight) {
+		    // This will set intakeToggle to true if it was previously false
+		    // and intakeToggle to false if it was previously true,
+		    // providing a toggling behavior.
+		    rightToggle = !rightToggle;
+
+		    // Using the toggle variable to control the robot.
+				if (rightToggle) {
+				    closeRightClaw();
+				}
+				else {
+				    openRightClaw();
+				}
+		}
+
+
+
+
+
+
+		   // Both Claw Toggle
    prevClaw = curClaw;
-    if (vexRT[Btn8D] || (leftClosed && rightClosed) ) {
+    if (vexRT[Btn8R]) {
     	curClaw = true;
     } else {
     	curClaw = false;
     }
 
-
-    // CLAW
     // Rising edge detector
 		if (curClaw && !prevClaw) {
 		    // This will set intakeToggle to true if it was previously false
 		    // and intakeToggle to false if it was previously true,
 		    // providing a toggling behavior.
-		    clawToggle = !clawToggle;
+				if (!leftToggle || !rightToggle) {
+					clawToggle = false;
+				} else {
+					clawToggle = !clawToggle;
+				}
+
+				// Using the toggle variable to control the robot.
+				if (clawToggle) {
+				    closeClaw();
+				    leftToggle = true;
+				    rightToggle = true;
+				}
+				else {
+				    openClaw();
+				    leftToggle = false;
+				    rightToggle = false;
+				}
+
 		}
 
-		// Using the toggle variable to control the robot.
-		if (clawToggle) {
-		    closeClaw();
-		}
-		else {
-		    openClaw();
-		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   	// Drive
