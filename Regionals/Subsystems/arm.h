@@ -32,15 +32,18 @@ void updateArm(int up, int down) {
   // Apply the output to the arm motor
 
   if (up == 1) {
-  	motor[armMotor] = 127;
+  	motor[armMotor1] = 127;
+  	motor[armMotor2] = 127;
   	setpoint = currentPosition;
   	clearTimer(T2);
   } else if (down == 1) {
-  	motor[armMotor] = -50;
+  	motor[armMotor1] = -50;
+  	motor[armMotor2] = -50;
   	setpoint = currentPosition;
   	clearTimer(T2);
   } else {
-  	motor[armMotor] = output;
+  	motor[armMotor1] = output;
+  	motor[armMotor2] = output;
   }
 
 
@@ -60,5 +63,6 @@ void nudgeDown() {
 
 // Function to stop the arm motor
 void stopArm() {
-  motor[armMotor] = 0;
+  motor[armMotor1] = 0;
+  motor[armMotor2] = 0;
 }
