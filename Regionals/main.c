@@ -38,13 +38,13 @@ task main()
   {
 
   	if (vexRT[Btn8U]) { // Vein Score
-      setArmSetpoint(1100);
+      setArmSetpoint(1000);
       clearTimer(T2);
       closeJoint();
       closeClaw();
       initial = false;
     } else if (vexRT[Btn8L]) { // Vein Pickup
-      setArmSetpoint(870);
+      setArmSetpoint(850);
       clearTimer(T2);
       openJoint();
       openClaw();

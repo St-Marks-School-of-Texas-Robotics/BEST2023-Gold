@@ -1,5 +1,5 @@
 
-const float kP = 1; // Proportional constant
+const float kP = 2; // Proportional constant
 const float kF = 20; // Proportional constant
 
 
