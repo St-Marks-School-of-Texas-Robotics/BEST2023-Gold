@@ -1,9 +1,9 @@
 
 const float kP = 1; // Proportional constant
-const float kF = 55; // Proportional constant
+const float kF = 20; // Proportional constant
 
 
-int setpoint = 1095;
+int setpoint = 912;
 
 // Function to set the arm's target position
 void setArmSetpoint(float target) {
@@ -19,7 +19,7 @@ void updateArm(int up, int down) {
 
   float ticksPerDegree = 4096 / 300;
 
-  float theta = (currentPosition - 1095) / ticksPerDegree; // angle from horizontal
+  float theta = (currentPosition - 912) / ticksPerDegree; // angle from horizontal
 
   float ff = kF * cosDegrees(theta);
 
@@ -32,18 +32,18 @@ void updateArm(int up, int down) {
   // Apply the output to the arm motor
 
   if (up == 1) {
-  	motor[armMotor1] = 127;
-  	motor[armMotor2] = 127;
+  	motor[leftArm] = 127;
+  	motor[rightArm] = 127;
   	setpoint = currentPosition;
   	clearTimer(T2);
   } else if (down == 1) {
-  	motor[armMotor1] = -50;
-  	motor[armMotor2] = -50;
+  	motor[leftArm] = -50;
+  	motor[rightArm] = -50;
   	setpoint = currentPosition;
   	clearTimer(T2);
   } else {
-  	motor[armMotor1] = output;
-  	motor[armMotor2] = output;
+  	motor[leftArm] = output;
+  	motor[rightArm] = output;
   }
 
 
@@ -63,6 +63,6 @@ void nudgeDown() {
 
 // Function to stop the arm motor
 void stopArm() {
-  motor[armMotor1] = 0;
-  motor[armMotor2] = 0;
+  motor[leftArm] = 0;
+  motor[rightArm] = 0;
 }

@@ -10,8 +10,8 @@ void arcadeDrive(int yJoystick, int xJoystick, int slow) {
   float rightMotorSpeed;
 
 	if (slow == 1) {
-		leftMotorSpeed = 0.4* yValue + 0.2* xValue;
-		rightMotorSpeed = 0.4* yValue - 0.2* xValue;
+		leftMotorSpeed = 0.4* yValue + 0.3* xValue;
+		rightMotorSpeed = 0.4* yValue - 0.3* xValue;
 	} else {
 		leftMotorSpeed = yValue + xValue;
 		rightMotorSpeed = yValue - xValue;
