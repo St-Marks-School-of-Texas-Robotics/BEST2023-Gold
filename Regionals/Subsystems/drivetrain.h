@@ -2,8 +2,12 @@
 // Function to implement arcade drive
 void arcadeDrive(int yJoystick, int xJoystick, int slow) {
 
+/*
 	float yValue = (yJoystick / 127.0) * (abs(yJoystick) / 127) * 127;
 	float xValue = (xJoystick / 127.0) * (abs(xJoystick) / 127) * 127;
+*/
+	float yValue = yJoystick;
+	float xValue = xJoystick;
 
 
 	float leftMotorSpeed;
