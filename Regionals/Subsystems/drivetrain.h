@@ -17,7 +17,7 @@ void arcadeDrive(int yJoystick, int xJoystick, int slow) {
 		leftMotorSpeed = 0.4* yValue + 0.3* xValue;
 		rightMotorSpeed = 0.4* yValue - 0.3* xValue;
 	} else {
-		leftMotorSpeed = yValue + xValue;
+		leftMotorSpeed = 0.98*yValue + xValue;
 		rightMotorSpeed = yValue - xValue;
 	}
 
@@ -43,7 +43,7 @@ void lineFollowingRight(bool stopBtn) {
 
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = +20 + 1800 * (time1[T1] / 1000);
+            motor[leftDrive] = 20 + 1800 * (time1[T1] / 1000);
             motor[rightDrive] = -50 - 2500 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
