@@ -60,7 +60,7 @@ task main()
 
 
 
-
+`//////////////////////
 		// Left Claw Toggle
 		prevLeft = leftClosed;
     if (vexRT[Btn7D]) {
