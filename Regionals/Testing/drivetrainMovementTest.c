@@ -9,6 +9,25 @@ bool curDrive = false;
 bool prevFwd = false;
 bool curFwd = false;
 
+bool prevBack = false;
+bool curBack = false;
+
+
+bool prevRight = false;
+bool curRight = false;
+
+bool prevLeft = false;
+bool curLeft = false;
+
+
+
+bool prevRightSide = false;
+bool curRightSide = false;
+
+bool prevLeftSide = false;
+bool curLeftSide = false;
+
+
 
 
 
@@ -20,16 +39,117 @@ bool curFwd = false;
 
 void moveFWD() {
 	clearTimer(T1);
-    while ((time1[T1] / 1000) > 2.5) { // Assuming stopBtn represents a button press
+    while (time1[T1] < 2000) { // Assuming stopBtn represents a button press
         motor[leftDrive] = 50;
   			motor[rightDrive] = 50;
     }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+}
+
+void moveBack() {
+	clearTimer(T1);
+    while (time1[T1] < 2000) { // Assuming stopBtn represents a button press
+        motor[leftDrive] = -50;
+  			motor[rightDrive] = -50;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
 }
 
 
 
 
 
+
+
+void turnRight() {
+	clearTimer(T1);
+    while (time1[T1] < 1500) { // Assuming stopBtn represents a button press
+        motor[leftDrive] = 40;
+  			motor[rightDrive] = -40;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+}
+
+void turnLeft() {
+	clearTimer(T1);
+    while (time1[T1] < 1500) { // Assuming stopBtn represents a button press
+        motor[leftDrive] = -40;
+  			motor[rightDrive] = 40;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+}
+
+
+
+
+
+void sideRight() {
+	clearTimer(T1);
+    while (time1[T1] < 2000) { // BACk
+        motor[leftDrive] = -40;
+  			motor[rightDrive] = -20;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+
+  	clearTimer(T1);
+    while (time1[T1] < 1000) { // Square
+        motor[leftDrive] = 30;
+  			motor[rightDrive] = -30;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+
+  	clearTimer(T1);
+    while (time1[T1] < 1000) { // FWD
+        motor[leftDrive] = 30;
+  			motor[rightDrive] = 30;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+}
+
+void sideLeft() {
+	clearTimer(T1);
+    while (time1[T1] < 2000) { // BACk
+        motor[leftDrive] = -20;
+  			motor[rightDrive] = -40;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+
+  	clearTimer(T1);
+    while (time1[T1] < 1000) { // Square
+        motor[leftDrive] = -30;
+  			motor[rightDrive] = 30;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+
+  	clearTimer(T1);
+    while (time1[T1] < 1000) { // FWD
+        motor[leftDrive] = 30;
+  			motor[rightDrive] = 30;
+    }
+    motor[leftDrive] = 0;
+  	motor[rightDrive] = 0;
+
+
+}
 
 
 
@@ -68,6 +188,9 @@ task main()
 
 
         if (autoState) {
+
+
+        // FWD
         		prevFwd = curFwd;
 		    		if (vexRT[Ch3] > 15) {
 				    	curFwd = true;
@@ -80,12 +203,88 @@ task main()
        			}
 
 
+				// Back
+				    prevBack = curBack;
+				    if (vexRT[Ch3] < -15) {
+				    	curBack = true;
+				    } else {
+				    	curBack = false;
+				    }
+
+				    if(curBack && !prevBack) { // Rising edge Back
+				    	moveBack();
+       			}
+
+
+       	// Right
+        		prevRight = curRight;
+		    		if (vexRT[Ch1] > 15) {
+				    	curRight = true;
+				    } else {
+				    	curRight = false;
+				    }
+
+				    if(curRight && !prevRight) { // Rising edge Right
+				    	turnRight();
+       			}
+
+       	// Left
+        		prevLeft = curLeft;
+		    		if (vexRT[Ch1] < -15) {
+				    	curLeft = true;
+				    } else {
+				    	curLeft = false;
+				    }
+
+				    if(curLeft && !prevLeft) { // Rising edge Right
+				    	turnLeft();
+       			}
+
+
+
+
+
+
+
+       			// Side Right
+        		prevRightSide = curRightSide;
+		    		if (vexRT[Ch4] > 15) {
+				    	curRightSide = true;
+				    } else {
+				    	curRightSide = false;
+				    }
+
+				    if(curRightSide && !prevRightSide) { // Rising edge Right
+				    	sideRight();
+       			}
+
+       	// Side Left
+        		prevLeftSide = curLeftSide;
+		    		if (vexRT[Ch4] < -15) {
+				    	curLeftSide = true;
+				    } else {
+				    	curLeftSide = false;
+				    }
+
+				    if(curLeftSide && !prevLeftSide) { // Rising edge Right
+				    	sideLeft();
+       			}
+
+
 
 
 
         } else { // manual
-        	motor[leftDrive] = vexRT[Ch3] + vexRT[Ch1];
-  				motor[rightDrive] = vexRT[Ch3] - vexRT[Ch1];
+
+
+		        if (vexRT[Btn5U]) {
+		        	motor[leftDrive] = 0.4 * (vexRT[Ch3] + vexRT[Ch1]);
+		  				motor[rightDrive] = 0.4 * (vexRT[Ch3] - vexRT[Ch1]);
+		        } else {
+		        	motor[leftDrive] = vexRT[Ch3] + vexRT[Ch1];
+		  				motor[rightDrive] = vexRT[Ch3] - vexRT[Ch1];
+		        }
+
         }
 
     }
