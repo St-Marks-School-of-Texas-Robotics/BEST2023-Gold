@@ -69,16 +69,16 @@ void lineFollowingLeft(bool stopBtn) {
 
         if (SensorValue[irLeft] == 0) {
             // Left over white
-            motor[leftDrive] = 14;
-            motor[rightDrive] = -45 - 400 * (time1[T1] / 1000);
+            motor[leftDrive] = 18;
+            motor[rightDrive] = -55 - 400 * (time1[T1] / 1000);
         } else if (SensorValue[irRight] == 0) {
             // Right over white
-            motor[leftDrive] = -50 - 1400 * (time1[T1] / 1000);
-            motor[rightDrive] = 17 + 800 * (time1[T1] / 1000);
+            motor[leftDrive] = -60 - 1400 * (time1[T1] / 1000);
+            motor[rightDrive] = 20 + 800 * (time1[T1] / 1000);
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = -95;
-            motor[rightDrive] = -108;
+            motor[leftDrive] = -115;
+            motor[rightDrive] = -127;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
