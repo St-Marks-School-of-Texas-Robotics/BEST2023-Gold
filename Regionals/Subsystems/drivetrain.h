@@ -77,8 +77,8 @@ void lineFollowingLeft(bool stopBtn) {
             motor[rightDrive] = 17 + 800 * (time1[T1] / 1000);
         } else {
             // Neither left nor right over white
-            motor[leftDrive] = -49;
-            motor[rightDrive] = -55;
+            motor[leftDrive] = -95;
+            motor[rightDrive] = -108;
             clearTimer(T1);
         }
         // Read stop button state here and update stopBtn variable accordingly
