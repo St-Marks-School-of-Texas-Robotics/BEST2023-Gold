@@ -172,19 +172,19 @@ task main()
 
 
     if (vexRT[Btn7L]) {   // Left Auto
-    	closeClaw();
+    	openClaw();
     	clawToggle = true;
     	closeJoint();
     	setArmSetpoint(1000);
     	lineFollowingLeft(vexRT[Btn7D]);
     } else if (vexRT[Btn7R]) {   // Right Auto
-    	closeClaw();
+    	openClaw();
     	clawToggle = true;
     	closeJoint();
     	setArmSetpoint(1000);
     	lineFollowingRight(vexRT[Btn7D]);
     } else if (vexRT[Btn7U]) {    // Reliable Auto
-    	closeClaw();
+    	openClaw();
     	clawToggle = true;
     	closeJoint();
     	setArmSetpoint(1000);
