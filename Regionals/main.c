@@ -38,13 +38,13 @@ task main()
   {
 
   	if (vexRT[Btn8U]) { // Vein Score
-      setArmSetpoint(1000);
+      setArmSetpoint(870);
       clearTimer(T2);
       closeJoint();
       closeClaw();
       initial = false;
     } else if (vexRT[Btn8L]) { // Vein Pickup
-      setArmSetpoint(850);
+      setArmSetpoint(1000);
       clearTimer(T2);
       openJoint();
       openClaw();
@@ -175,19 +175,19 @@ task main()
     	openClaw();
     	clawToggle = true;
     	closeJoint();
-    	setArmSetpoint(1000);
+    	setArmSetpoint(870);
     	lineFollowingLeft(vexRT[Btn7D]);
     } else if (vexRT[Btn7R]) {   // Right Auto
     	openClaw();
     	clawToggle = true;
     	closeJoint();
-    	setArmSetpoint(1000);
+    	setArmSetpoint(870);
     	lineFollowingRight(vexRT[Btn7D]);
     } else if (vexRT[Btn7U]) {    // Reliable Auto
     	openClaw();
     	clawToggle = true;
     	closeJoint();
-    	setArmSetpoint(1000);
+    	setArmSetpoint(870);
     	lineFollowingSlow(vexRT[Btn7D]);
     }
 
